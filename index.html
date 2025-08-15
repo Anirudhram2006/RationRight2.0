@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html>https://github.com/Anirudhram2006/RationRight2.0/blob/main/index.html
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -85,13 +85,15 @@
   
   <script>
     if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("sw.js")
-      .then(reg => console.log("Service Worker registered:", reg.scope))
-      .catch(err => console.log("Service Worker failed:", err));
-  });
-}
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("sw.js")
+        .then(reg => {
+          console.log("Service Worker registered:", reg.scope);
+        })
+        .catch(err => console.log("Service Worker failed:", err));
+    });
+  }
   </script>
   <script>
 function playDeliveryDetails() {
