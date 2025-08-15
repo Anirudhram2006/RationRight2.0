@@ -60,6 +60,7 @@
           </div>
           <p class="muted">Image preview provided by delivery agent.</p>
           <div class="controls">
+            <button class="secondary" onclick="playDeliveryDetails()">🔊 Play Details (Voice)</button>
             <button id="btnNext" class="primary" onclick="gotoAction()">Go to Accept/Reject</button>
           </div>
         </div>
@@ -92,6 +93,15 @@
   });
 }
   </script>
+  <script>
+function playDeliveryDetails() {
+  const msg = new SpeechSynthesisUtterance(
+    "Delivery for Mr. Kumar. Item: Rice. Quantity: 5 kilograms."
+  );
+  msg.lang = "en-IN"; // Indian English voice
+  window.speechSynthesis.speak(msg);
+}
+</script>
 
 
 </body>
