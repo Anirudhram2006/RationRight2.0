@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RationRight — Prototype v2</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>RationRight</h1>
+      <small>Smart & Inclusive Ration Delivery — Prototype</small>
+    </header>
+
+    <main id="main">
+      <!-- Username/Password Login Screen -->
+      <section id="screen-user-login" class="screen active">
+        <h2>Login</h2>
+        <div class="card">
+          <label>Username</label>
+          <input type="text" id="username" placeholder="Enter username">
+        </div>
+        <div class="card">
+          <label>Password</label>
+          <input type="password" id="password" placeholder="Enter password">
+        </div>
+        <button class="primary" onclick="userLogin()">Login</button>
+      </section>
+
+      <!-- Biometric Screen -->
+      <section id="screen-login" class="screen">
+        <div class="scan-choice">
+          <div class="scan-item" onclick="startScan('fingerprint')">
+            <img src="assets/fingerprint.png" alt="Fingerprint icon">
+            <p>Fingerprint Scan</p>
+          </div>
+          <div class="scan-item" onclick="startScan('eye')">
+            <img src="assets/eye.png" alt="Eye scan icon">
+            <p>Eye Scan</p>
+          </div>
+        </div>
+        <div id="scan-status" class="muted"></div>
+      </section>
+
+      <!-- Delivery Details -->
+      <section id="screen-delivery" class="screen">
+        <h2>Delivery Details</h2>
+        <div class="card">
+          <div class="row">
+            <div class="col">
+              <p><strong>Beneficiary:</strong> Mr. Kumar</p>
+              <p><strong>Item:</strong> Rice</p>
+              <p><strong>Quantity:</strong> 5 kg</p>
+            </div>
+            <div class="col">
+              <img id="grainImage" src="assets/grains1.jpg" alt="Grain preview">
+            </div>
+          </div>
+          <p class="muted">Image preview provided by delivery agent.</p>
+          <div class="controls">
+            <button id="btnNext" class="primary" onclick="gotoAction()">Go to Accept/Reject</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Accept / Reject -->
+      <section id="screen-action" class="screen">
+        <h2>Accept / Reject Delivery</h2>
+        <div class="card">
+          <p><strong>Delivery:</strong> Rice — 5 kg to Mr. Kumar</p>
+          <div class="big-buttons">
+            <button class="accept" onclick="setStatus('Accepted')">Accept Delivery</button>
+            <button class="reject" onclick="setStatus('Rejected')">Reject Delivery</button>
+          </div>
+          <p id="status" class="status muted">No action taken yet.</p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
